@@ -1,21 +1,14 @@
-import styles from "./Posts.module.css";
+import { useSelector } from "react-redux";
+
 import SinglePost from "./SinglePost";
 
-const dummyPosts = [
-  {
-    id: "1",
-    author: "Adam Winter",
-    text: "Hi, I am Adam!",
-    reactions: {
-      // TODO: Edit later
-    },
-  },
-  { id: "2", author: "John Lazy", text: "Hi, I am John!" },
-  { id: "1", author: "Gorge Crazy", text: "Hi, I am Gorge!" },
-];
+import styles from "./Posts.module.css";
+import { selectAllPosts } from "../../app/slices/postsSlice";
 
 const Posts = () => {
-  const renderedPosts = dummyPosts.map((post) => {
+  const posts = useSelector(selectAllPosts);
+
+  const renderedPosts = posts.map((post) => {
     return <SinglePost key={post.id} post={post} />;
   });
 

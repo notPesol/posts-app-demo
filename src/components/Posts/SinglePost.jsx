@@ -1,5 +1,8 @@
+import ReactionButtons from "./ReactionButtons";
+
 import avatar from "../../images/avatar.jpg";
 import styles from "./SinglePost.module.css";
+import PostAuthor from "./PostAuthor";
 
 const SinglePost = ({ post }) => {
   return (
@@ -8,13 +11,12 @@ const SinglePost = ({ post }) => {
         <figure>
           <img src={avatar} alt="avater" />
         </figure>
-        <span>{post.author}</span>
+        <PostAuthor userId={post.userId} />
       </div>
-      <p>{post.text}</p>
-      <div className={styles.emojies}>
-        <button>0 Like</button>
-        <button>0 Like</button>
-        <button>0 Like</button>
+      <p>{post.text.substring(0, 100)}</p>
+      <div className={styles.actions}>
+        <button>View Post</button>
+        <ReactionButtons post={post} />
       </div>
     </li>
   );

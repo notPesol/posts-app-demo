@@ -5,7 +5,8 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <ul>
         <li>Home</li>
-        <li>Profile</li>
+        <li>Sign In</li>
+        <li>Sign Up</li>
       </ul>
     </nav>
   );
