@@ -1,0 +1,28 @@
+.posts {
+  width: 100%;
+  max-width: 1080px;
+  display: flex;
+  /* padding: 1rem; */
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  /* background-color: var(--my-black); */
+  border-radius: 0.5rem;
+  color: var(--my-white);
+
+}
+
+.posts ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+
+
+

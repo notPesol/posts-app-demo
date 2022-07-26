@@ -1,0 +1,45 @@
+.addPostForm {
+  width: 100%;
+  max-width: 1080px;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background-color: var(--my-black);
+  border-radius: 0.5rem;
+}
+
+.addPostForm figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  max-width: 40px;
+  max-height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.addPostForm figure img {
+  width: 100%;
+  height: 100%;
+}
+
+.addPostForm form {
+  width: calc(100% - (40px + 1rem));
+}
+
+.addPostForm input[type="text"] {
+  width: 100%;
+  padding: 7px 5px;
+  background-color: var(--my-gray);
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--my-white);
+  border: 0;
+}
+
+.addPostForm input[type=text]:focus-visible {
+  outline: 1px solid var(--my-white) ;
+}
