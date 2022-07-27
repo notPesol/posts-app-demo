@@ -17,10 +17,13 @@ const ReactionButtons = ({ post }) => {
       <button
         key={name}
         onClick={() =>
-          dispatch(addReaction({ postId: post.id, reaction: name }))
+          // TODO: Edit later
+          dispatch(
+            addReaction({ postId: post.id, reaction: name, userId: null })
+          )
         }
       >
-        {post.reactions[name]} {emoji}
+        {post.reactions.emojiie[name]} {emoji}
       </button>
     );
   });

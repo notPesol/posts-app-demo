@@ -30,7 +30,7 @@
   width: calc(100% - (40px + 1rem));
 }
 
-.addPostForm input[type="text"] {
+/* .addPostForm input[type="text"] {
   width: 100%;
   padding: 7px 5px;
   background-color: var(--my-gray);
@@ -42,4 +42,4 @@
 
 .addPostForm input[type=text]:focus-visible {
   outline: 1px solid var(--my-white) ;
-}
+} */

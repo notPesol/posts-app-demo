@@ -8,11 +8,14 @@ const initialState = {
 };
 
 const initialReactions = {
-  thumbsUp: 0,
-  hooray: 0,
-  heart: 0,
-  rocket: 0,
-  eyes: 0,
+  emojiie: {
+    thumbsUp: 0,
+    hooray: 0,
+    heart: 0,
+    rocket: 0,
+    eyes: 0,
+  },
+  userIds: [],
 };
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
@@ -48,10 +51,24 @@ const postsSlice = createSlice({
       }
     },
     addReaction: (state, action) => {
-      const { postId, reaction } = action.payload;
+      const { postId, reaction, userId } = action.payload;
       const existingPost = state.posts.find((post) => post.id === postId);
       if (existingPost) {
-        existingPost.reactions[reaction]++;
+        const existingUerId = existingPost.reactions.userIds.find(
+          (postUserId) => {
+            return postUserId === userId;
+          }
+        );
+        if (!existingUerId) {
+          existingPost.reactions.userIds.push(userId);
+          existingPost.reactions.emojiie[reaction]++;
+        } else {
+          existingPost.reactions.userIds =
+            existingPost.reactions.userIds.filter(
+              (postUserId) => postUserId !== userId
+            );
+          existingPost.reactions.emojiie[reaction]--;
+        }
       }
     },
   },

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addPost } from "../../app/slices/postsSlice";
 
 import avater from "../../images/avatar.jpg";
+import Input from "../UI/Input";
 import styles from "./AddPostForm.module.css";
 
 const AddPostForm = () => {
@@ -24,11 +25,10 @@ const AddPostForm = () => {
         <img src={avater} alt="your profile" />
       </figure>
       <form onSubmit={submitHandler}>
-        <input
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+        <Input
           placeholder="มึงกำลังคิดอะไรอยู่..."
+          onChange={(e) => setText(e.target.value)}
+          value={text}
         />
       </form>
     </section>
