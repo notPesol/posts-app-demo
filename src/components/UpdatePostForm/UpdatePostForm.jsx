@@ -1,9 +1,17 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { updatePost } from "../../app/slices/postsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { updatePost, selectPostById } from "../../app/slices/postsSlice";
 import Input from "../UI/Input";
 
-const UpdatePostForm = ({ post }) => {
+const UpdatePostForm = ({ history, location, match }) => {
+  const { postId } = match.params;
+
+  const post = useSelector((state) => selectPostById(state, postId));
+
+  if (!post) {
+    history.replace("/");
+  }
+
   const [text, setText] = useState(post?.text || "");
 
   const dispatch = useDispatch();
@@ -12,7 +20,7 @@ const UpdatePostForm = ({ post }) => {
     e.preventDefault();
     if (text) {
       dispatch(updatePost({ postId: post.id, text }));
-      setText("");
+      history.replace("/");
     }
   };
 

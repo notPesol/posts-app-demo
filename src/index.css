@@ -3,6 +3,7 @@
   --my-white: #b0b3b8;
   --my-background: #18191a;
   --my-gray: #3a3b3c;
+  --my-blue: rgb(27, 151, 252);
 }
 
 body {
@@ -22,4 +23,14 @@ code {
 
 * {
   box-sizing: border-box;
+}
+
+a, a:active {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--my-white);
+}
+
+a.active {
+  color: var(--my-blue);
 }

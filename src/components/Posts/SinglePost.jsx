@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import ReactionButtons from "./ReactionButtons";
 
 import avatar from "../../images/avatar.jpg";
@@ -16,6 +18,9 @@ const SinglePost = ({ post }) => {
       <p>{post.text.substring(0, 100)}</p>
       <div className={styles.actions}>
         <button>View Post</button>
+        <button>
+          <Link to={`/edit-post/${post.id}`}>Edit Post</Link>
+        </button>
         <ReactionButtons post={post} />
       </div>
     </li>
