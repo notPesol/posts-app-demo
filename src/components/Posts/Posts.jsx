@@ -4,6 +4,7 @@ import SinglePost from "./SinglePost";
 
 import styles from "./Posts.module.css";
 import { selectAllPosts } from "../../app/slices/postsSlice";
+import Wrapper from "../UI/Wrapper";
 
 const Posts = () => {
   const posts = useSelector(selectAllPosts);
@@ -13,9 +14,9 @@ const Posts = () => {
   });
 
   return (
-    <section className={styles.posts}>
-      <ul>{renderedPosts}</ul>
-    </section>
+    <Wrapper>
+      <ul className={styles['posts-list']}>{renderedPosts}</ul>
+    </Wrapper>
   );
 };
 

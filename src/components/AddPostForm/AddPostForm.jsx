@@ -5,6 +5,7 @@ import { addPost } from "../../app/slices/postsSlice";
 
 import avater from "../../images/avatar.jpg";
 import Input from "../UI/Input";
+import Wrapper from "../UI/Wrapper";
 import styles from "./AddPostForm.module.css";
 
 const AddPostForm = () => {
@@ -20,7 +21,7 @@ const AddPostForm = () => {
   };
 
   return (
-    <section className={styles.addPostForm}>
+    <Wrapper className={styles.addPostForm}>
       <figure>
         <img src={avater} alt="your profile" />
       </figure>
@@ -31,7 +32,7 @@ const AddPostForm = () => {
           value={text}
         />
       </form>
-    </section>
+    </Wrapper>
   );
 };
 
