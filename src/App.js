@@ -7,6 +7,8 @@ import UpdatePostForm from "./components/UpdatePostForm/UpdatePostForm";
 
 import Layout from "./components/Layout/Layout";
 import Posts from "./components/Posts/Posts";
+import SignUp from "./components/SignUp/SignUp";
+import SignIn from "./components/SignIn/SignIn";
 
 function App() {
   return (
@@ -17,6 +19,12 @@ function App() {
             <AddPostForm />
             <Posts />
           </React.Fragment>
+        </Route>
+        <Route path="/sign-up">
+          <SignUp />
+        </Route>
+        <Route path="/sign-in">
+          <SignIn />
         </Route>
         <Route path={`/edit-post/:postId`} component={UpdatePostForm} />
         <Redirect to="/" />

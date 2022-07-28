@@ -1,6 +1,6 @@
 import styles from "./Input.module.css";
 
-const Input = ({ type, onChange, placeholder, value }) => {
+const Input = ({ type, onChange, placeholder, value, id }) => {
   return (
     <input
       className={styles.input}
@@ -8,6 +8,7 @@ const Input = ({ type, onChange, placeholder, value }) => {
       onChange={onChange || null}
       placeholder={placeholder || ""}
       value={value}
+      id={id}
     />
   );
 };
