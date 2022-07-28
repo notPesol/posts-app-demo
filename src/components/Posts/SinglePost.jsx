@@ -5,6 +5,7 @@ import ReactionButtons from "./ReactionButtons";
 import avatar from "../../images/avatar.jpg";
 import styles from "./SinglePost.module.css";
 import PostAuthor from "./PostAuthor";
+import Button from "../UI/Button";
 
 const SinglePost = ({ post }) => {
   return (
@@ -17,10 +18,10 @@ const SinglePost = ({ post }) => {
       </div>
       <p>{post.text.substring(0, 100)}</p>
       <div className={styles.actions}>
-        <button>View Post</button>
-        <button>
+        <Button>View Post</Button>
+        <Button>
           <Link to={`/edit-post/${post.id}`}>Edit Post</Link>
-        </button>
+        </Button>
         <ReactionButtons post={post} />
       </div>
     </li>

@@ -3,6 +3,8 @@ import React from "react";
 import { useDispatch } from "react-redux/es/exports";
 import { addReaction } from "../../app/slices/postsSlice";
 
+import Button from "../UI/Button";
+
 const reactionEmoji = {
   thumbsUp: "👍",
   hooray: "🎉",
@@ -14,7 +16,7 @@ const ReactionButtons = ({ post }) => {
 
   const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
     return (
-      <button
+      <Button
         key={name}
         onClick={() =>
           // TODO: Edit later
@@ -24,7 +26,7 @@ const ReactionButtons = ({ post }) => {
         }
       >
         {post.reactions.emojiie[name]} {emoji}
-      </button>
+      </Button>
     );
   });
 

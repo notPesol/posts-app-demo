@@ -33,14 +33,3 @@
   flex-wrap: wrap;
   gap: 0.5rem;
 }
-
-.actions button {
-  display: flex;
-  align-items: center;
-  background-color: var(--my-black);
-  color: var(--my-white);
-  border-radius: 4px;
-  border-color: var(--my-black);
-  border-width: 2px;
-  cursor: pointer;
-}

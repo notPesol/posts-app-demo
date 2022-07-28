@@ -1,0 +1,8 @@
+.button {
+  margin: 1rem auto;
+  min-width: 100px;
+  font-size: 1rem;
+  justify-content: center;
+  padding: 5px;
+  border-color: var(--my-white);
+}
