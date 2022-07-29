@@ -23,3 +23,8 @@
   margin: auto;
   border-color: var(--my-white);
 }
+
+.error {
+  text-align: center;
+  color: red;
+}

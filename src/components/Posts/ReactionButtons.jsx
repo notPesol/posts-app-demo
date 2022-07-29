@@ -1,6 +1,7 @@
 import React from "react";
 
-import { useDispatch } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
+import { selectUserId } from "../../app/slices/authSlice";
 import { addReaction } from "../../app/slices/postsSlice";
 
 import Button from "../UI/Button";
@@ -12,6 +13,7 @@ const reactionEmoji = {
 };
 
 const ReactionButtons = ({ post }) => {
+  const userId = useSelector(selectUserId);
   const dispatch = useDispatch();
 
   const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
@@ -20,9 +22,13 @@ const ReactionButtons = ({ post }) => {
         key={name}
         onClick={() =>
           // TODO: Edit later
-          dispatch(
-            addReaction({ postId: post.id, reaction: name, userId: null })
-          )
+          {
+            if (userId) {
+              dispatch(
+                addReaction({ postId: post.id, reaction: name, userId })
+              );
+            }
+          }
         }
       >
         {post.reactions.emojiie[name]} {emoji}

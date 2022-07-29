@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const loginAsync = createAsyncThunk(
-  "auth/loginAsync",
+  "auth/login",
   async (reqBody, thunkAPI) => {
     // TODO: Edit later
     const response = await fetch("/fakeAPI/login", {

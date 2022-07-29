@@ -1,12 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { nanoid } from "@reduxjs/toolkit";
 
-const initialState = {
-  posts: [],
-  status: "idle", // -> "idle" | "loading" | "succeeded" | "failed",
-  error: null, // -> null | string
-};
-
 const initialReactions = {
   emojiie: {
     thumbsUp: 0,
@@ -16,6 +10,27 @@ const initialReactions = {
     eyes: 0,
   },
   userIds: [],
+};
+
+const dummyPost = [
+  {
+    id: nanoid(),
+    text: "First Post!",
+    userId: null,
+    reactions: initialReactions,
+  },
+  {
+    id: nanoid(),
+    text: "Second Post!",
+    userId: null,
+    reactions: initialReactions,
+  },
+];
+
+const initialState = {
+  posts: [...dummyPost],
+  status: "idle", // -> "idle" | "loading" | "succeeded" | "failed",
+  error: null, // -> null | string
 };
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
@@ -56,18 +71,26 @@ const postsSlice = createSlice({
       if (existingPost) {
         const existingUerId = existingPost.reactions.userIds.find(
           (postUserId) => {
-            return postUserId === userId;
+            return postUserId.userId === userId;
           }
         );
         if (!existingUerId) {
-          existingPost.reactions.userIds.push(userId);
+          existingPost.reactions.userIds.push({ userId, reaction });
           existingPost.reactions.emojiie[reaction]++;
         } else {
-          existingPost.reactions.userIds =
-            existingPost.reactions.userIds.filter(
-              (postUserId) => postUserId !== userId
-            );
-          existingPost.reactions.emojiie[reaction]--;
+          const userReaction = existingUerId.reaction;
+
+          if (userReaction === reaction) {
+            existingPost.reactions.emojiie[userReaction]--;
+            existingPost.reactions.userIds =
+              existingPost.reactions.userIds.filter(
+                (postUserId) => postUserId.userId !== userId
+              );
+          } else {
+            existingPost.reactions.emojiie[userReaction]--;
+            existingPost.reactions.emojiie[reaction]++;
+            existingUerId.reaction = reaction;
+          }
         }
       }
     },
