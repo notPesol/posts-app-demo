@@ -28,7 +28,7 @@ const SignIn = ({ history }) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    // assume
+    // dummy user
     if (username === "adam" && password === "adam555") {
       dispatch(login({ userId: "1" }));
       history.replace("/");
