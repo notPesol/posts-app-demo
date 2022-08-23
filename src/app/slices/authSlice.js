@@ -4,7 +4,7 @@ export const loginAsync = createAsyncThunk(
   "auth/login",
   async (reqBody, thunkAPI) => {
     // TODO: Edit later
-    const response = await fetch("/fakeAPI/login", {
+    const response = await fetch("https://www.some-domain/api/auth", {
       method: "POST",
       body: JSON.stringify({
         username: reqBody.username,
@@ -53,6 +53,7 @@ const authSlice = createSlice({
 
 export const { login, logout } = authSlice.actions;
 
+export const selectAuth = state => state.auth;
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
 export const selectUserId = (state) => state.auth.userId;
 export const selectStatus = (state) => state.auth.status;

@@ -1,3 +1,5 @@
+import React from "react";
+
 import Navbar from "../Navbar/Navbar";
 
 import styles from "./Header.module.css";
@@ -11,4 +13,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
